@@ -7,3 +7,10 @@
 //
 
 #include "Entity.h"
+
+
+bool createEntity(EntityType type)
+{
+    
+    return true;
+}
