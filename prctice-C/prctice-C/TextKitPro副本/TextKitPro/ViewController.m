@@ -112,7 +112,8 @@
 //    field.frame = CGRectMake(100, 100, 80, 50);
 //     [self.view addSubview: field];
 
-    //测试 NSMutableAttributedString
+//测试 NSMutableAttributedString
+    
 #if defined(LYJ) 
     lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"\ue348测试富文本测试富文本测试富文本测试富文本测测试富文本测试\n\n富文本测试富文本测试富文本测试富文本测试富文本测试富文本测试富文本测试富文本测试富文本测试富文本测试富文本测试\ue348富文本测试富文本测试富\n文本测试富文本测试富文本测试富文本 "];
@@ -145,7 +146,6 @@
     lab.numberOfLines = 0;
     lab.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview: lab ];
-
 #endif
     
     [MessageView setPublicWidth: 90 ];
