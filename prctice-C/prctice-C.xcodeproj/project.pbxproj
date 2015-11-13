@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		23D0E4AB1B9C41BA003C6459 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 23D0E4AA1B9C41BA003C6459 /* main.c */; };
 		23D0E4B41B9C430B003C6459 /* Entity.c in Sources */ = {isa = PBXBuildFile; fileRef = 23D0E4B11B9C430B003C6459 /* Entity.c */; };
+		E68D2B821BF571D00070208A /* handlemap.c in Sources */ = {isa = PBXBuildFile; fileRef = E68D2B7D1BF571D00070208A /* handlemap.c */; };
+		E68D2B831BF571D00070208A /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = E68D2B811BF571D00070208A /* test.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,11 @@
 		23D0E4B11B9C430B003C6459 /* Entity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Entity.c; sourceTree = "<group>"; };
 		23D0E4B21B9C430B003C6459 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		23D0E4B31B9C430B003C6459 /* EntityType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityType.h; sourceTree = "<group>"; };
+		E68D2B7D1BF571D00070208A /* handlemap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = handlemap.c; sourceTree = "<group>"; };
+		E68D2B7E1BF571D00070208A /* handlemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handlemap.h; sourceTree = "<group>"; };
+		E68D2B7F1BF571D00070208A /* simplelock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simplelock.h; sourceTree = "<group>"; };
+		E68D2B801BF571D00070208A /* simplethread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simplethread.h; sourceTree = "<group>"; };
+		E68D2B811BF571D00070208A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +68,11 @@
 		23D0E4A91B9C41BA003C6459 /* prctice-C */ = {
 			isa = PBXGroup;
 			children = (
+				E68D2B7D1BF571D00070208A /* handlemap.c */,
+				E68D2B7E1BF571D00070208A /* handlemap.h */,
+				E68D2B7F1BF571D00070208A /* simplelock.h */,
+				E68D2B801BF571D00070208A /* simplethread.h */,
+				E68D2B811BF571D00070208A /* test.c */,
 				23D0E4AA1B9C41BA003C6459 /* main.c */,
 				23D0E4B11B9C430B003C6459 /* Entity.c */,
 				23D0E4B21B9C430B003C6459 /* Entity.h */,
@@ -126,7 +138,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				23D0E4B41B9C430B003C6459 /* Entity.c in Sources */,
+				E68D2B821BF571D00070208A /* handlemap.c in Sources */,
 				23D0E4AB1B9C41BA003C6459 /* main.c in Sources */,
+				E68D2B831BF571D00070208A /* test.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +257,7 @@
 				23D0E4B01B9C41BA003C6459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

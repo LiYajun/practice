@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C74CAB40-C46E-43A2-9581-28C5B720C067</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>prctice-C</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F512C50ECADC86A23D2970428415EAD64CE00CC0</key>
 		<string>https://github.com/LiYajun/practice.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>prctice-C/prctice-C.xcodeproj/project.xcworkspace</string>
+	<string>prctice-C/prctice-C.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F512C50ECADC86A23D2970428415EAD64CE00CC0</key>
