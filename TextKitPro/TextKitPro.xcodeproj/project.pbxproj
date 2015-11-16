@@ -23,7 +23,6 @@
 		E65645B31BF1E82C008E71FA /* coretext-image-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E65645B11BF1E82C008E71FA /* coretext-image-2.jpg */; };
 		E65645B61BF1F17C008E71FA /* picView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65645B51BF1F17C008E71FA /* picView.m */; };
 		E68307C11BEC3C3A00EC26DE /* chatto_bg_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E68307C01BEC3C3A00EC26DE /* chatto_bg_normal.png */; };
-		E68307C31BEC468C00EC26DE /* TTTAttributedLabel in Resources */ = {isa = PBXBuildFile; fileRef = E68307C21BEC468C00EC26DE /* TTTAttributedLabel */; };
 		E68307C61BEC4D5900EC26DE /* RichMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E68307C51BEC4D5900EC26DE /* RichMessageView.m */; };
 		E68307CA1BEC57B900EC26DE /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = E68307C91BEC57B900EC26DE /* UIView+frameAdjust.m */; };
 		E68307CD1BEC591800EC26DE /* CoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = E68307CC1BEC591800EC26DE /* CoreTextData.m */; };
@@ -71,7 +70,6 @@
 		E65645B41BF1F17C008E71FA /* picView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = picView.h; sourceTree = "<group>"; };
 		E65645B51BF1F17C008E71FA /* picView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = picView.m; sourceTree = "<group>"; };
 		E68307C01BEC3C3A00EC26DE /* chatto_bg_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatto_bg_normal.png; sourceTree = "<group>"; };
-		E68307C21BEC468C00EC26DE /* TTTAttributedLabel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TTTAttributedLabel; sourceTree = "<group>"; };
 		E68307C41BEC4D5900EC26DE /* RichMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichMessageView.h; sourceTree = "<group>"; };
 		E68307C51BEC4D5900EC26DE /* RichMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichMessageView.m; sourceTree = "<group>"; };
 		E68307C81BEC57B900EC26DE /* UIView+frameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frameAdjust.h"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			children = (
 				E68307C81BEC57B900EC26DE /* UIView+frameAdjust.h */,
 				E68307C91BEC57B900EC26DE /* UIView+frameAdjust.m */,
-				E68307C21BEC468C00EC26DE /* TTTAttributedLabel */,
 				E68307C01BEC3C3A00EC26DE /* chatto_bg_normal.png */,
 				E6473B501BF31D6E00FCD321 /* chatfrom_bg_normal.png */,
 				238B03121BE21002001FAF87 /* AppDelegate.h */,
@@ -289,7 +286,6 @@
 				238B031A1BE21002001FAF87 /* Main.storyboard in Resources */,
 				238B031F1BE21002001FAF87 /* LaunchScreen.xib in Resources */,
 				238B031C1BE21002001FAF87 /* Images.xcassets in Resources */,
-				E68307C31BEC468C00EC26DE /* TTTAttributedLabel in Resources */,
 				E68307C11BEC3C3A00EC26DE /* chatto_bg_normal.png in Resources */,
 				E65645B21BF1E82C008E71FA /* coretext-image-1.jpg in Resources */,
 				E65645AF1BF1E269008E71FA /* content.json in Resources */,

@@ -10,12 +10,11 @@
 #import <CoreText/CoreText.h>
  
 #import "MessageView.h"
-#import "TTTAttributedLabel/TTTAttributedLabel.h"
 #import <Foundation/Foundation.h>
 
 #import "UIView+frameAdjust.h"
 #import "RichMessageView.h"
-#import "picView.h"
+
 #import "BubbleRichMsgView.h"
 @interface ViewController ()
 

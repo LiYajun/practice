@@ -25,7 +25,7 @@
  
 
         CGContextBeginPath(context);
-    CGPathRef path = CGPathCreateWithRoundedRect(CGRectMake(10, 10, 150, 150), 20, 20, &CGAffineTransformIdentity);
+        CGPathRef path = CGPathCreateWithRoundedRect(CGRectMake(10, 10, 150, 150), 20, 20, &CGAffineTransformIdentity);
         CGContextAddPath(context,  path);
         CGContextClosePath(context);
         CGContextClip( context);

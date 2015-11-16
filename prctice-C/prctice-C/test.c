@@ -92,22 +92,22 @@ test(struct handlemap *m) {
 	thread_join(t,3);
 }
 
-int
-main() {
-	struct handlemap * m = handlemap_init();
-	int i;
-	test(m);
-	handleid tmp[HANDLE_N];
-	int n = handlemap_list(m, HANDLE_N, tmp);
-	for (i=0;i<n;i++) {
-		handleid id = tmp[i];
-		void *ptr = handlemap_release(m, id);
-		if (ptr) {
-			printf("clear %d, id = %u, ptr = %p\n", i, id, ptr);
-		}
-	}
-
-	handlemap_exit(m);
-
-	return 0;
-}
+//int
+//main() {
+//	struct handlemap * m = handlemap_init();
+//	int i;
+//	test(m);
+//	handleid tmp[HANDLE_N];
+//	int n = handlemap_list(m, HANDLE_N, tmp);
+//	for (i=0;i<n;i++) {
+//		handleid id = tmp[i];
+//		void *ptr = handlemap_release(m, id);
+//		if (ptr) {
+//			printf("clear %d, id = %u, ptr = %p\n", i, id, ptr);
+//		}
+//	}
+//
+//	handlemap_exit(m);
+//
+//	return 0;
+//}
