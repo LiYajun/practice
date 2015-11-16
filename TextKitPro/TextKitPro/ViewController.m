@@ -68,7 +68,7 @@
     [self.view addSubview: lab ];
 #endif
     
-    [BubbleRichMsgView setPublicMaxWidth: 100];
+    [BubbleRichMsgView setPublicMaxWidth: 200];
     BubbleRichMsgView * richMessageView = [BubbleRichMsgView createBubbleRichMsgView: @[
   @{
       @"color"   : @"red",
@@ -87,6 +87,12 @@
       @"height"  : [ NSNumber numberWithInteger: 217/4 ],
       @"width"   : [ NSNumber numberWithInteger: 400/4 ],
       @"type"    : @"img",
+      },
+  @{
+      @"color"   : @"blue",
+      @"content"   : @"baidu",
+      @"url"     : @"www.baidu.com",
+      @"type"    : @"link",
       },
   ] MsgFrom: RightMsg];
     richMessageView.x = 20;

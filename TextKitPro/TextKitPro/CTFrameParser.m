@@ -132,7 +132,7 @@ static CGFloat widthCallback(void* ref)
                     NSAttributedString *as = [self parseImageDataFromNSDictionary:dict config:config];
                     [result appendAttributedString:as];
                     
-                }else if( [type isEqualToString: @"link"] ) //链接，本质是和文本一样，只是能被点击
+                }else if( [type isEqualToString: @"link"] ) //链接，本质是和文本一样， 能被点击
                 {
                     NSUInteger startPos = result.length;
                     
@@ -145,6 +145,7 @@ static CGFloat widthCallback(void* ref)
                     CoreTextLinkData * linkData = [[CoreTextLinkData alloc] init];
                     linkData.title = dict[@"content"];
                     linkData.url   = dict[@"url"];
+                    linkData.type = TypeUrl;
                     linkData.range = linkRange;
                     [linkArray addObject: linkData];
                     
@@ -157,6 +158,14 @@ static CGFloat widthCallback(void* ref)
                                                                                             config:config];
                     [ result appendAttributedString : numberStr ];
                     
+                    NSUInteger length = result.length - startPos;
+                    NSRange linkRange = NSMakeRange( startPos,  length );
+                    CoreTextLinkData * linkData = [[CoreTextLinkData alloc] init];
+                    linkData.title = dict[@"content"];
+                    linkData.url   = nil;
+                    linkData.type = TypeNumber;
+                    linkData.range = linkRange;
+                    [linkArray addObject: linkData];
                     
                 }
             }

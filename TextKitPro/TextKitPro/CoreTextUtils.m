@@ -43,7 +43,7 @@
         CTLineRef line = CFArrayGetValueAtIndex(lines, i);
         // 获得每一行的CGRect信息
         CGRect flippedRect = [self getLineBounds:line point:linePoint];
-        CGRect rect = CGRectApplyAffineTransform(flippedRect, transform);
+        CGRect rect = CGRectApplyAffineTransform(flippedRect, transform); //获取 UIKit 坐标系中的 rect
 
         if (CGRectContainsPoint(rect, point)) {
             // 将点击的坐标转换成相对于当前行的坐标
@@ -65,7 +65,7 @@
     CGFloat width = (CGFloat)CTLineGetTypographicBounds(line, &ascent, &descent, &leading); //获取一行的宽度,
     
     CGFloat height = ascent + descent;
-    return CGRectMake(point.x, point.y - descent, width, height);
+    return CGRectMake(point.x, point.y - descent, width, height); //左下角 为 原点
 }
 
 + (CoreTextLinkData *)linkAtIndex:(CFIndex)i linkArray:(NSArray *)linkArray {
