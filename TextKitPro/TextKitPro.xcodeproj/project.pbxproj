@@ -15,6 +15,7 @@
 		238B031F1BE21002001FAF87 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238B031D1BE21002001FAF87 /* LaunchScreen.xib */; };
 		238B032B1BE21002001FAF87 /* TextKitProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 238B032A1BE21002001FAF87 /* TextKitProTests.m */; };
 		23ECF19F1BE733AA002C8932 /* NSAttributedString+Height.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ECF19E1BE733AA002C8932 /* NSAttributedString+Height.m */; };
+		E62EC1B91BFAFED000F10650 /* TUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E62EC1B81BFAFED000F10650 /* TUIButton.m */; };
 		E6473B4B1BF30CBF00FCD321 /* BubbleRichMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6473B4A1BF30CBF00FCD321 /* BubbleRichMsgView.m */; };
 		E6473B511BF31D6E00FCD321 /* chatfrom_bg_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E6473B501BF31D6E00FCD321 /* chatfrom_bg_normal.png */; };
 		E65645AF1BF1E269008E71FA /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = E65645AE1BF1E269008E71FA /* content.json */; };
@@ -58,6 +59,8 @@
 		238B032A1BE21002001FAF87 /* TextKitProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextKitProTests.m; sourceTree = "<group>"; };
 		23ECF19D1BE733AA002C8932 /* NSAttributedString+Height.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Height.h"; sourceTree = "<group>"; };
 		23ECF19E1BE733AA002C8932 /* NSAttributedString+Height.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Height.m"; sourceTree = "<group>"; };
+		E62EC1B71BFAFED000F10650 /* TUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIButton.h; sourceTree = "<group>"; };
+		E62EC1B81BFAFED000F10650 /* TUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUIButton.m; sourceTree = "<group>"; };
 		E6473B491BF30CBF00FCD321 /* BubbleRichMsgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleRichMsgView.h; sourceTree = "<group>"; };
 		E6473B4A1BF30CBF00FCD321 /* BubbleRichMsgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleRichMsgView.m; sourceTree = "<group>"; };
 		E6473B501BF31D6E00FCD321 /* chatfrom_bg_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatfrom_bg_normal.png; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				238B03161BE21002001FAF87 /* ViewController.m */,
 				E65645B41BF1F17C008E71FA /* picView.h */,
 				E65645B51BF1F17C008E71FA /* picView.m */,
+				E62EC1B71BFAFED000F10650 /* TUIButton.h */,
+				E62EC1B81BFAFED000F10650 /* TUIButton.m */,
 				E68307C71BEC556500EC26DE /* richTextModels */,
 				23ECF19D1BE733AA002C8932 /* NSAttributedString+Height.h */,
 				23ECF19E1BE733AA002C8932 /* NSAttributedString+Height.m */,
@@ -310,6 +315,7 @@
 				E68307D31BEC7F0500EC26DE /* CTFrameParserConfig.m in Sources */,
 				E68307CD1BEC591800EC26DE /* CoreTextData.m in Sources */,
 				238B03141BE21002001FAF87 /* AppDelegate.m in Sources */,
+				E62EC1B91BFAFED000F10650 /* TUIButton.m in Sources */,
 				23ECF19F1BE733AA002C8932 /* NSAttributedString+Height.m in Sources */,
 				E68307C61BEC4D5900EC26DE /* RichMessageView.m in Sources */,
 				238B03111BE21002001FAF87 /* main.m in Sources */,

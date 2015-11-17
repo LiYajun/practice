@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
- 
+  self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan=NO;
 //测试 NSMutableAttributedString
     
 #if defined(LYJ) 
@@ -83,8 +83,8 @@
       },
   @{
       @"name"    : @"coretext-image-1.jpg",
-      @"height"  : [ NSNumber numberWithInteger: 100 ],
-      @"width"   : [ NSNumber numberWithInteger: 250 ],
+      @"height"  : [ NSNumber numberWithInteger: 25 ],
+      @"width"   : [ NSNumber numberWithInteger: 50 ],
       @"type"    : @"img",
       },
   @{
@@ -95,8 +95,12 @@
       },
   ] MsgFrom: RightMsg];
     richMessageView.x = 20;
-    richMessageView.y = 10;
+    richMessageView.y = 50;
+    
    [self.view addSubview: richMessageView ];
+   [ richMessageView.imgBtn  addTarget: self  action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
+   //  richMessageView.imgBtn.highlighted  = YES;
+    
     BubbleRichMsgView * richMessageViewL = [BubbleRichMsgView createBubbleRichMsgView:
     @[
       @{
@@ -128,9 +132,10 @@
     richMessageViewL.x = 20;
     richMessageViewL.y = 300;
     [self.view addSubview: richMessageViewL];
-
     
-    richMessageView.backgroundColor = [UIColor clearColor];
+    [ richMessageViewL.imgBtn addTarget:self action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
+    //richMessageViewL.imgBtn.highlighted = YES;
+   
     self.view.backgroundColor = [UIColor whiteColor];
     
 //    
@@ -157,7 +162,10 @@
     
 }
 
-
+-(void)ACT_TouchUpinside:(id)sender
+{
+    NSLog(@"touch inside .. ......   ............");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

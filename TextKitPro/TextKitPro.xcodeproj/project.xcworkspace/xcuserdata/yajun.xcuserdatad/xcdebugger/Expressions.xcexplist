@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[TUIButton touchesBegan:withEvent:]:TUIButton.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "super">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RichMessageView touchesBegan:withEvent:]:RichMessageView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.nextResponder">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

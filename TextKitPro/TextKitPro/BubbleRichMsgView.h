@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, MsgFromWhere) {
 @property(strong,nonatomic) RichMessageView * richMessageView;  // rich View
 
 @property(strong,nonatomic) UIImageView  *  bubbleBackView;   // 气泡背景图片
-
+@property(strong,nonatomic) UIButton  *     imgBtn;
 @property(assign) MsgFromWhere   msgFrom;
  
 /*!
