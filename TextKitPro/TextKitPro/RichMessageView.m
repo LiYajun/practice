@@ -24,7 +24,10 @@ static CGFloat publicMaxWidth = 0;
 {
     publicMaxWidth = width;
 }
-
++(CGFloat)getPublicMaxWidth
+{
+    return  publicMaxWidth;
+}
 +(RichMessageView *)createMessageView:( NSArray * ) array
 {
     if (publicMaxWidth == 0)
@@ -103,6 +106,7 @@ static CGFloat publicMaxWidth = 0;
             NSLog(@"hint image");
             // 在这里处理点击后的逻辑
             NSDictionary *userInfo = @{ @"imageData": imageData };
+            //发出通知
             [ [ NSNotificationCenter defaultCenter ] postNotificationName: CTDisplayViewImagePressedNotification
                                                                 object: self userInfo : userInfo ];
             return;
@@ -113,6 +117,7 @@ static CGFloat publicMaxWidth = 0;
     if (linkData) {
         NSLog(@"hint link!");
         NSDictionary *userInfo = @{ @"linkData": linkData };
+        // 发出通知
         [[NSNotificationCenter defaultCenter] postNotificationName:CTDisplayViewLinkPressedNotification
                                                             object:self userInfo:userInfo];
         return;

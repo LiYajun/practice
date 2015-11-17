@@ -28,7 +28,12 @@ typedef NS_ENUM(NSInteger, MsgFromWhere) {
  */
 
 +(void)setPublicMaxWidth:( CGFloat )width;
+/*!
+ 获取设置所有的 bubbleMsgView 实例的最大宽度
 
+ @return the max width
+ */
++(CGFloat)getPublicMaxWidth;
 /*!
  通过字符串来创造消息视图
  @param array

@@ -21,7 +21,10 @@ static NSString * rightBubbleImage = nil;
     if(width != 0)
     [RichMessageView setPublicMaxWidth: width];
 }
-
++(CGFloat)getPublicMaxWidth
+{
+    return  [RichMessageView getPublicMaxWidth];
+}
 /*!
  通过字符串来创造消息视图
  @param array
@@ -58,7 +61,7 @@ static NSString * rightBubbleImage = nil;
     bubbleView.frame = imgView.frame;
     
     [bubbleView addSubview: imgView];
-    
+    imgView.userInteractionEnabled = YES;
     bubbleView.bubbleBackView  = imgView;
     bubbleView.richMessageView = richMsgView;
     

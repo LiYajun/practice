@@ -26,6 +26,12 @@ extern NSString *const CTDisplayViewLinkPressedNotification;
 +(void)setPublicMaxWidth:( CGFloat )width;
 
 /*!
+ 获取设置所有的MessageView实例的最大宽度
+ @return width
+ */
++(CGFloat)getPublicMaxWidth;
+
+/*!
  通过 NSArray 中的 Dictionary 来创造消息视图， 必须先调用 setPublicMaxWidth：width 设置所有实例的最大宽度，最大宽度默认为0 
  @param array 
  

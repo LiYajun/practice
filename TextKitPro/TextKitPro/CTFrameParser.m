@@ -25,7 +25,7 @@ static CGFloat ascentCallback(void *ref)
 //CTRun baseline 以下的高度
 static CGFloat descentCallback(void *ref)
 {
-    return 10;
+    return 0;
 }
 //CTRun 宽度
 static CGFloat widthCallback(void* ref)
@@ -186,9 +186,7 @@ static CGFloat widthCallback(void* ref)
     if(data)
     {
         NSArray * array = [NSJSONSerialization JSONObjectWithData: data
-                       
                                                       options: NSJSONReadingAllowFragments
-     
                                                         error: nil];
     
         return  [self loadFromArray: array config: config imageArray: imageArray linkArray: linkArray];
@@ -283,10 +281,14 @@ static CGFloat widthCallback(void* ref)
     callbacks.getAscent = ascentCallback;
     callbacks.getDescent = descentCallback;
     callbacks.getWidth = widthCallback;
-    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)(dict));
+    //
+ 
+    
+    
+    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)( dict))   ;
     
     // 使用0xFFFC作为空白的占位符
-    unichar objectReplacementChar = 0xFFFC;
+    unichar objectReplacementChar = 0xFFFE;
     NSString * content = [NSString stringWithCharacters:&objectReplacementChar length:1];
     NSDictionary * attributes = [self attributesWithConfig:config];
     NSMutableAttributedString * space = [[NSMutableAttributedString alloc] initWithString:content

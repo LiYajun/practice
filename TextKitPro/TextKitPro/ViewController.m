@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <CoreText/CoreText.h>
  
-#import "MessageView.h"
+
 #import <Foundation/Foundation.h>
 
 #import "UIView+frameAdjust.h"
@@ -83,8 +83,8 @@
       },
   @{
       @"name"    : @"coretext-image-1.jpg",
-      @"height"  : [ NSNumber numberWithInteger: 217/4 ],
-      @"width"   : [ NSNumber numberWithInteger: 400/4 ],
+      @"height"  : [ NSNumber numberWithInteger: 100 ],
+      @"width"   : [ NSNumber numberWithInteger: 250 ],
       @"type"    : @"img",
       },
   @{
