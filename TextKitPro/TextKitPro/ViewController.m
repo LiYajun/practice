@@ -104,19 +104,19 @@
     BubbleRichMsgView * richMessageViewL = [BubbleRichMsgView createBubbleRichMsgView:
     @[
       @{
-        @"color"   : @"red",
+        //@"color"   : @"red",
         @"content" : @"\ue403的1213344534534 ",
-        @"size"    : [NSNumber numberWithInteger: 10],
+       // @"size"    : [NSNumber numberWithInteger: 10],
         @"type"    : @"txt",
         },
     @{
-        @"color"   : @"blue",
+        //@"color"   : @"blue",
         @"content" : @"更版 \ue403版文件\ue403天热,文字的 ",
-        @"size"    : [NSNumber numberWithInteger: 10],
+        //@"size"    : [NSNumber numberWithInteger: 10],
         @"type"    : @"txt",
         },
       @{
-          @"color"    : @"blue",
+         // @"color"    : @"blue",
           @"content"  : @"132234535667",
          // @"size"   : [ NSNumber numberWithInteger: 14 ],
           @"type"    : @"number",
@@ -128,15 +128,15 @@
         @"type"    : @"img",
         },
       @{
-          @"color"    : @"blue",
+          //@"color"    : @"blue",
           @"content"  : @"1322323123242344535667",
-          @"size"   : [ NSNumber numberWithInteger: 12 ],
+         // @"size"   : [ NSNumber numberWithInteger: 12 ],
           @"type"    : @"number",
           },
       @{
-          @"color"   : @"blue",
+          //@"color"   : @"blue",
           @"content" : @"更版 \ue403版版文件版文件文版文件版文件版文件件\ue403天热,文字的 ",
-          @"size"    : [NSNumber numberWithInteger: 10],
+         // @"size"    : [NSNumber numberWithInteger: 10],
           @"type"    : @"txt",
           },
 
@@ -149,23 +149,42 @@
     //richMessageViewL.imgBtn.highlighted = YES;
    
     self.view.backgroundColor = [UIColor whiteColor];
+//    
+//    UIButton * btn1 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
+//    [btn1 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
+//    [btn1 setTitle: @"btn1:" forState:UIControlStateNormal ];
+//    [btn1 addTarget:self action:@selector(test1) forControlEvents:UIControlEventTouchUpInside ];
+//    [self.view addSubview: btn1 ];
+//    btn1.backgroundColor = [UIColor redColor ];
+//    btn1.x = 10; btn1.y = 200;
+//    
+//    
+//    UIButton * btn2 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
+//    [btn2 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
+//    [btn2 setTitle: @"btn2:" forState:UIControlStateNormal ];
+//    [btn2 addTarget:self action:@selector(test2) forControlEvents:UIControlEventTouchUpInside ];
+//    [ btn1 addSubview: btn2 ];
+//    btn2.x = 10; btn2.y = 0;
+//    btn2.backgroundColor = [ UIColor blueColor ];
     
-    UIButton * btn1 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
-    [btn1 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
-    [btn1 setTitle: @"btn1:" forState:UIControlStateNormal ];
-    [btn1 addTarget:self action:@selector(test1) forControlEvents:UIControlEventTouchUpInside ];
-    [self.view addSubview: btn1 ];
-    btn1.backgroundColor = [UIColor redColor ];
-    btn1.x = 10; btn1.y = 200;
     
+//    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:@"(?i)//b((?:[a-z][//w-]+:(?:/{1,3}|[a-z0-9%])|www//d{0,3}[.]|[a-z0-9.//-]+[.][a-z]{2,4}/)(?:[^//s()<>]+|//(([^//s()<>]+|(//([^//s()<>]+//)))*//))+(?://(([^//s()<>]+|(//([^//s()<>]+//)))*//)|[^//s`!()//[//]{};:'/\".,<>?«»“”‘’]))" options:NSRegularExpressionCaseInsensitive error:NULL];
+    NSString *someString = @"This is a sample of a80129309  http://abc.com/efg.php?EFAei687e3EsA sentence with a URL within it.";
+//    NSString *match = [someString substringWithRange:[expression rangeOfFirstMatchInString:someString options: NSMatchingReportCompletion range:NSMakeRange(0, [someString length])] ];
+//    NSLog(@"%@", match); // Correctly prints 'http://abc.com/efg.php?EFAei687e3EsA'
+//    
     
-    UIButton * btn2 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
-    [btn2 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
-    [btn2 setTitle: @"btn2:" forState:UIControlStateNormal ];
-    [btn2 addTarget:self action:@selector(test2) forControlEvents:UIControlEventTouchUpInside ];
-    [ btn1 addSubview: btn2 ];
-    btn2.x = 10; btn2.y = 0;
-    btn2.backgroundColor = [ UIColor blueColor ];
+//    NSError* error = nil;
+//    NSDataDetector* linkDetector = [NSDataDetector dataDetectorWithTypes: NSTextCheckingTypeLink|NSTextCheckingTypePhoneNumber error:&error];
+//    [linkDetector enumerateMatchesInString: someString  options: kNilOptions range:NSMakeRange(0,[someString length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+//        if (result.URL) {
+//            NSLog(@"url = %@",result.URL);
+//        }
+//        if (result.phoneNumber) {
+//            NSLog(@"phone = %@",result.phoneNumber);
+//        }
+//    }];
+    
 }
 -(void)test1
 {

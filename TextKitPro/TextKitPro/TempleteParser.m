@@ -9,14 +9,21 @@
 #import "TempleteParser.h"
 
 @implementation TempleteParser
-
+//分析内容
 +(NSArray*)createTempleteArrayFrom:(NSString*)inStr
 {
-    NSArray * array = nil;
+    if(inStr == nil || [inStr isEqualToString:@""])
+        return  nil;
     
-    for (int i = 0; i < inStr.length; i++ ) {
+    
+    NSScanner * scanner = [[NSScanner alloc] initWithString: inStr];
+    NSCharacterSet * numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"]; //数字集合
+    NSMutableArray * textArray = [[NSMutableArray alloc]init ];
+    
+    while (![scanner isAtEnd])
+    {
         
     }
-    return array;
+    return textArray;
 }
 @end
