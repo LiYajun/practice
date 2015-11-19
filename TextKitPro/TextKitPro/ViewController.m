@@ -98,7 +98,7 @@
     richMessageView.y = 50;
     
    [self.view addSubview: richMessageView ];
-   [ richMessageView.imgBtn  addTarget: self  action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
+//   [ richMessageView.imgBtn  addTarget: self  action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
    //  richMessageView.imgBtn.highlighted  = YES;
     
     BubbleRichMsgView * richMessageViewL = [BubbleRichMsgView createBubbleRichMsgView:
@@ -118,50 +118,63 @@
       @{
           @"color"    : @"blue",
           @"content"  : @"132234535667",
-          @"size"   : [ NSNumber numberWithInteger: 14 ],
+         // @"size"   : [ NSNumber numberWithInteger: 14 ],
           @"type"    : @"number",
           },
-    @{
+      @{
         @"name"    : @"coretext-image-1.jpg",
         @"height"  : [ NSNumber numberWithInteger: 217/4 ],
         @"width"   : [ NSNumber numberWithInteger: 400/4 ],
         @"type"    : @"img",
         },
+      @{
+          @"color"    : @"blue",
+          @"content"  : @"1322323123242344535667",
+          @"size"   : [ NSNumber numberWithInteger: 12 ],
+          @"type"    : @"number",
+          },
+      @{
+          @"color"   : @"blue",
+          @"content" : @"更版 \ue403版版文件版文件文版文件版文件版文件件\ue403天热,文字的 ",
+          @"size"    : [NSNumber numberWithInteger: 10],
+          @"type"    : @"txt",
+          },
 
      ] MsgFrom: LeftMsg];
     richMessageViewL.x = 20;
     richMessageViewL.y = 300;
     [self.view addSubview: richMessageViewL];
     
-    [ richMessageViewL.imgBtn addTarget:self action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
+//    [ richMessageViewL.imgBtn addTarget:self action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
     //richMessageViewL.imgBtn.highlighted = YES;
    
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    
-//    NSString *attrString =@"hello word";
-//    
-//    NSMutableParagraphStyle *paragraph=[[NSMutableParagraphStyle alloc]init];
-//    paragraph.alignment=NSTextAlignmentCenter;//居中
-//    
-//    NSDictionary* attrs =@{NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter" size:30],//文本的颜色 字体 大小
-//                           NSForegroundColorAttributeName:[UIColor redColor],//文字颜色
-//                           NSParagraphStyleAttributeName:paragraph,//段落格式
-//                           NSBackgroundColorAttributeName:[UIColor blueColor],//背景色
-//                           };
-//    UILabel *lab = [[UILabel alloc] initWithFrame: CGRectMake(100, 20, 200, 80)
-//                    ];
-//    lab.attributedText = [[ NSAttributedString alloc] initWithString: attrString attributes: attrs ];
-//    [self.view addSubview: lab];
+    UIButton * btn1 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
+    [btn1 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
+    [btn1 setTitle: @"btn1:" forState:UIControlStateNormal ];
+    [btn1 addTarget:self action:@selector(test1) forControlEvents:UIControlEventTouchUpInside ];
+    [self.view addSubview: btn1 ];
+    btn1.backgroundColor = [UIColor redColor ];
+    btn1.x = 10; btn1.y = 200;
     
-//    picView * view = [[picView alloc] initWithFrame: CGRectMake(0, 300, 300, 200)];
-//    view.image = [UIImage imageNamed:@"coretext-image-2.jpg"];
-//    
-// 
-//    [self.view addSubview: view];
     
+    UIButton * btn2 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
+    [btn2 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
+    [btn2 setTitle: @"btn2:" forState:UIControlStateNormal ];
+    [btn2 addTarget:self action:@selector(test2) forControlEvents:UIControlEventTouchUpInside ];
+    [ btn1 addSubview: btn2 ];
+    btn2.x = 10; btn2.y = 0;
+    btn2.backgroundColor = [ UIColor blueColor ];
 }
-
+-(void)test1
+{
+    NSLog(@"test 11111");
+}
+-(void)test2
+{
+    NSLog(@"test 22222");
+}
 -(void)ACT_TouchUpinside:(id)sender
 {
     NSLog(@"touch inside .. ......   ............");

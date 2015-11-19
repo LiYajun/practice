@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[BubbleRichMsgView userTapGestureDetected:]:BubbleRichMsgView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.state">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[TUIButton touchesBegan:withEvent:]:TUIButton.m">
          <PersistentStrings>
             <PersistentString

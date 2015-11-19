@@ -5,7 +5,11 @@
 //  Created by li yajun on 15/11/6.
 //  Copyright (c) 2015年 andybain. All rights reserved.
 //
+/******************************************************\
 
+ 版本：
+ 作者：
+\******************************************************/
 #import <UIKit/UIKit.h>
 #import "CoreTextData.h"
 
@@ -19,7 +23,7 @@ extern NSString *const CTDisplayViewLinkPressedNotification;
 
 
 /*!
- 设置所有的MessageView实例的最大宽度
+ 设置 所有的MessageView实例的 最大宽度
  @param width 传入的宽度
  @return void
  */
@@ -41,8 +45,14 @@ extern NSString *const CTDisplayViewLinkPressedNotification;
 /*!
  通过 NSArray 中的 Dictionary 来创造消息视图，传入一个最大宽度 
  @param array  width
- 
  */
+
 +(RichMessageView *)createMessageView:(NSArray *) array withWidth: (CGFloat)width;
+
+
+/*!
+外部获取长按的手势识别器
+ */
+-(void)getUserGuesture:(UIGestureRecognizer *) recognzier;
 
 @end

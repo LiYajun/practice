@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextKitPro/ViewController.m"
-            timestampString = "469445576.402577"
+            timestampString = "469527040.495061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextKitPro/ViewController.m"
-            timestampString = "469445576.402577"
+            timestampString = "469609504.315489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-ACT_TouchUpinside:"
             landmarkType = "5">
          </BreakpointContent>
@@ -52,12 +52,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TextKitPro/RichMessageView.m"
-            timestampString = "469448123.049725"
+            timestampString = "469614403.316334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "-drawRect:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-getUserGuesture:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

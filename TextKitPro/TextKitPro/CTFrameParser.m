@@ -288,7 +288,7 @@ static CGFloat widthCallback(void* ref)
     CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)( dict))   ;
     
     // 使用0xFFFC作为空白的占位符
-    unichar objectReplacementChar = 0xFFFE;
+    unichar objectReplacementChar = 0xFFFC;
     NSString * content = [NSString stringWithCharacters:&objectReplacementChar length:1];
     NSDictionary * attributes = [self attributesWithConfig:config];
     NSMutableAttributedString * space = [[NSMutableAttributedString alloc] initWithString:content

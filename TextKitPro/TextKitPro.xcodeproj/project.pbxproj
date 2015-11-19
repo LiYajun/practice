@@ -14,7 +14,6 @@
 		238B031C1BE21002001FAF87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238B031B1BE21002001FAF87 /* Images.xcassets */; };
 		238B031F1BE21002001FAF87 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238B031D1BE21002001FAF87 /* LaunchScreen.xib */; };
 		238B032B1BE21002001FAF87 /* TextKitProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 238B032A1BE21002001FAF87 /* TextKitProTests.m */; };
-		23ECF19F1BE733AA002C8932 /* NSAttributedString+Height.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ECF19E1BE733AA002C8932 /* NSAttributedString+Height.m */; };
 		E62EC1B91BFAFED000F10650 /* TUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E62EC1B81BFAFED000F10650 /* TUIButton.m */; };
 		E6473B4B1BF30CBF00FCD321 /* BubbleRichMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6473B4A1BF30CBF00FCD321 /* BubbleRichMsgView.m */; };
 		E6473B511BF31D6E00FCD321 /* chatfrom_bg_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E6473B501BF31D6E00FCD321 /* chatfrom_bg_normal.png */; };
@@ -30,6 +29,7 @@
 		E68307D31BEC7F0500EC26DE /* CTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E68307D21BEC7F0500EC26DE /* CTFrameParserConfig.m */; };
 		E68307D61BEC97CF00EC26DE /* CoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = E68307D51BEC97CF00EC26DE /* CoreTextImageData.m */; };
 		E68307D91BECA3A400EC26DE /* CoreTextLinkData.m in Sources */ = {isa = PBXBuildFile; fileRef = E68307D81BECA3A400EC26DE /* CoreTextLinkData.m */; };
+		E69605301BFDC08A008802C0 /* TempleteParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E696052F1BFDC08A008802C0 /* TempleteParser.m */; };
 		E69FDDBE1BF06F330008B71C /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FDDBD1BF06F330008B71C /* CoreTextUtils.m */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +57,6 @@
 		238B03241BE21002001FAF87 /* TextKitProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextKitProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		238B03291BE21002001FAF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		238B032A1BE21002001FAF87 /* TextKitProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextKitProTests.m; sourceTree = "<group>"; };
-		23ECF19D1BE733AA002C8932 /* NSAttributedString+Height.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Height.h"; sourceTree = "<group>"; };
-		23ECF19E1BE733AA002C8932 /* NSAttributedString+Height.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Height.m"; sourceTree = "<group>"; };
 		E62EC1B71BFAFED000F10650 /* TUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIButton.h; sourceTree = "<group>"; };
 		E62EC1B81BFAFED000F10650 /* TUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUIButton.m; sourceTree = "<group>"; };
 		E6473B491BF30CBF00FCD321 /* BubbleRichMsgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleRichMsgView.h; sourceTree = "<group>"; };
@@ -84,6 +82,8 @@
 		E68307D51BEC97CF00EC26DE /* CoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextImageData.m; sourceTree = "<group>"; };
 		E68307D71BECA3A400EC26DE /* CoreTextLinkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextLinkData.h; sourceTree = "<group>"; };
 		E68307D81BECA3A400EC26DE /* CoreTextLinkData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextLinkData.m; sourceTree = "<group>"; };
+		E696052E1BFDC08A008802C0 /* TempleteParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempleteParser.h; sourceTree = "<group>"; };
+		E696052F1BFDC08A008802C0 /* TempleteParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempleteParser.m; sourceTree = "<group>"; };
 		E69FDDBC1BF06F330008B71C /* CoreTextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextUtils.h; sourceTree = "<group>"; };
 		E69FDDBD1BF06F330008B71C /* CoreTextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,8 +140,6 @@
 				E62EC1B71BFAFED000F10650 /* TUIButton.h */,
 				E62EC1B81BFAFED000F10650 /* TUIButton.m */,
 				E68307C71BEC556500EC26DE /* richTextModels */,
-				23ECF19D1BE733AA002C8932 /* NSAttributedString+Height.h */,
-				23ECF19E1BE733AA002C8932 /* NSAttributedString+Height.m */,
 				238B03181BE21002001FAF87 /* Main.storyboard */,
 				238B031B1BE21002001FAF87 /* Images.xcassets */,
 				238B031D1BE21002001FAF87 /* LaunchScreen.xib */,
@@ -182,6 +180,8 @@
 		E68307C71BEC556500EC26DE /* richTextModels */ = {
 			isa = PBXGroup;
 			children = (
+				E696052E1BFDC08A008802C0 /* TempleteParser.h */,
+				E696052F1BFDC08A008802C0 /* TempleteParser.m */,
 				E6473B491BF30CBF00FCD321 /* BubbleRichMsgView.h */,
 				E6473B4A1BF30CBF00FCD321 /* BubbleRichMsgView.m */,
 				E68307C41BEC4D5900EC26DE /* RichMessageView.h */,
@@ -315,8 +315,8 @@
 				E68307D31BEC7F0500EC26DE /* CTFrameParserConfig.m in Sources */,
 				E68307CD1BEC591800EC26DE /* CoreTextData.m in Sources */,
 				238B03141BE21002001FAF87 /* AppDelegate.m in Sources */,
+				E69605301BFDC08A008802C0 /* TempleteParser.m in Sources */,
 				E62EC1B91BFAFED000F10650 /* TUIButton.m in Sources */,
-				23ECF19F1BE733AA002C8932 /* NSAttributedString+Height.m in Sources */,
 				E68307C61BEC4D5900EC26DE /* RichMessageView.m in Sources */,
 				238B03111BE21002001FAF87 /* main.m in Sources */,
 				E68307D01BEC7BE900EC26DE /* CTFrameParser.m in Sources */,

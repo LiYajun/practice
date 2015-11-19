@@ -9,7 +9,7 @@
 #import "BubbleRichMsgView.h"
 #import "UIView+frameAdjust.h"
 
-#import "TUIButton.h"
+ 
 
 
 @implementation BubbleRichMsgView
@@ -36,20 +36,22 @@ static NSString * rightBubbleImage = nil;
 +(BubbleRichMsgView *)createBubbleRichMsgView:( NSArray * ) array MsgFrom:(MsgFromWhere) msgfrom
 {
     
-    BubbleRichMsgView * bubbleView = [[BubbleRichMsgView alloc] initWithFrame: CGRectZero ];
+ 
     
     RichMessageView *  richMsgView = [RichMessageView createMessageView: array];
     NSInteger left = 5;   // 距离 左边边距
     NSInteger right = 16; // 距离 右边边距
+    
     CGRect  bubbleFrame = CGRectMake(0, 0, richMsgView.data.width + left + right ,  richMsgView.data.height + 5*2);
     
-    //UIImageView * imgView =  [[ UIImageView alloc ]initWithFrame: bubbleFrame];
-    TUIButton * imgBtn  = [[TUIButton alloc]initWithFrame: bubbleFrame];
+    BubbleRichMsgView * bubbleView = [[BubbleRichMsgView alloc] initWithFrame :  bubbleFrame ];
+    
+ 
     
     if(msgfrom == RightMsg)
     {
         UIImage * img = [[ UIImage imageNamed: @"chatto_bg_normal.png"]  resizableImageWithCapInsets:UIEdgeInsetsMake(35, 10, 10, 22) resizingMode: UIImageResizingModeTile ];
-        [imgBtn setBackgroundImage: img forState: UIControlStateNormal ];
+        [bubbleView setBackgroundImage: img forState: UIControlStateNormal ];
         richMsgView.x = left ;
         richMsgView.y = 5 ;
         
@@ -57,44 +59,91 @@ static NSString * rightBubbleImage = nil;
     {
         UIImage * img = [[ UIImage imageNamed: @"chatfrom_bg_normal.png"]  resizableImageWithCapInsets:UIEdgeInsetsMake(35, 22, 10, 10) resizingMode: UIImageResizingModeTile ];
         
-        [imgBtn setBackgroundImage: img forState: UIControlStateNormal ];
+        [bubbleView setBackgroundImage: img forState: UIControlStateNormal ];
         richMsgView.x = right ;
         richMsgView.y = 5 ;
         
     }
     bubbleView.msgFrom = msgfrom;
-    
-     [ imgBtn addSubview:  richMsgView ];
-    
-     bubbleView.frame = imgBtn.frame;
-    imgBtn.userInteractionEnabled = YES;
-    [bubbleView addSubview: imgBtn];
- 
-    bubbleView.imgBtn  = imgBtn;
+    [bubbleView addSubview: richMsgView];
+    richMsgView.userInteractionEnabled = NO;
     bubbleView.richMessageView = richMsgView;
     
     
-    richMsgView.backgroundColor = [UIColor clearColor];
-    imgBtn.backgroundColor =[UIColor clearColor];
-    bubbleView.backgroundColor =[UIColor clearColor];
-//    bubbleView.width  = imgBtn.width+10;
+    richMsgView.backgroundColor = [UIColor orangeColor];
+    bubbleView.backgroundColor =[UIColor blueColor];
     
     return  bubbleView;
 }
-//-(void)ACT_TouchUpinside:(id)sender
-//{
-//     NSLog(@"Button touch up inside ");
-//}
-//-(void)userTapGestureDetected:(UIGestureRecognizer *) sender
-//{
-//    NSLog(@"Button touches down ");
-//}
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [ super initWithFrame: frame ];
+    if(self)
+    {
+        [self addTarget:self action:@selector( ACT_touchupinside: ) forControlEvents:  UIControlEventTouchUpInside];
+        
+            //点击手势
+            UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                        action:@selector(userGestureDetected:)];
+        
+            [self addGestureRecognizer:tapRecognizer];
+        
+            //长按
+            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                                     action:@selector(userGestureDetected:)];
+            longPressRecognizer.minimumPressDuration = 3;
+            [self addGestureRecognizer:longPressRecognizer];
+  
+        
+    }
+    return  self;
+}
+
+//点击，长按
+-(void)userGestureDetected:( UIGestureRecognizer *)sender
+{
+   
+    [self.richMessageView getUserGuesture: sender];
+    
+}
+
+
+-(void)ACT_touchupinside:(UIButton*)sender
+{
+    NSLog(@"touch up inside ......");
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"btn  touchesBegan");
+    [super touchesBegan:touches withEvent:event];
+}
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+     NSLog(@"btn  touchesMoved");
+      [super touchesMoved:touches withEvent:event];
+    
+}
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  
+    NSLog(@"btn  touchesEnded");
+    [super touchesEnded:touches withEvent:event];
+
+}
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+ 
+    NSLog(@"btn  touchesCancelled");
+    
+    [super touchesCancelled:touches withEvent:event];
+}
+
+-(void)drawRect:(CGRect)rect
+{
+    static NSUInteger counter = 1;
+    NSLog(@"\n绘制次数：%u\n", counter++);
+    [ super drawRect: rect ];
+}
 @end

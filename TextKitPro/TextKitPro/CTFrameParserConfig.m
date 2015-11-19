@@ -13,7 +13,9 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
+    if (self)
+    {
+        //默认配置
         _width = 200.0f;
         _fontSize = 16.0f;
         _lineSpace = 5.0f;
