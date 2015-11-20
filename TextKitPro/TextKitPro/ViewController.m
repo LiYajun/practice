@@ -167,12 +167,48 @@
 //    btn2.x = 10; btn2.y = 0;
 //    btn2.backgroundColor = [ UIColor blueColor ];
     
+    //组装一个字符串，需要把里面的网址解析出来
     
-//    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:@"(?i)//b((?:[a-z][//w-]+:(?:/{1,3}|[a-z0-9%])|www//d{0,3}[.]|[a-z0-9.//-]+[.][a-z]{2,4}/)(?:[^//s()<>]+|//(([^//s()<>]+|(//([^//s()<>]+//)))*//))+(?://(([^//s()<>]+|(//([^//s()<>]+//)))*//)|[^//s`!()//[//]{};:'/\".,<>?«»“”‘’]))" options:NSRegularExpressionCaseInsensitive error:NULL];
-    NSString *someString = @"This is a sample of a80129309  http://abc.com/efg.php?EFAei687e3EsA sentence with a URL within it.";
-//    NSString *match = [someString substringWithRange:[expression rangeOfFirstMatchInString:someString options: NSMatchingReportCompletion range:NSMakeRange(0, [someString length])] ];
-//    NSLog(@"%@", match); // Correctly prints 'http://abc.com/efg.php?EFAei687e3EsA'
-//    
+    NSString *urlString=@"www.blog.csdn.net/hitwhylz/article/details/46402309";
+    //NSRegularExpression类里面调用表达的方法需要传递一个NSError的参数。下面定义一个
+    NSError *error;
+    
+ //    http+:[^\\s]* 这个表达式是检测一个网址的。
+ //   NSString* str = @"http+:[^\\s]*";
+//    NSString* str2= @"0\\d{2}-\\d{8}";
+//    NSString* str3= @"\\bhi\\w*";
+    
+    #define KWebRegex    @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)"
+  
+    #define number  @"\\b\\d{5,12}"
+    
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: KWebRegex options:0 error:&error];
+    
+    if(regex != nil)
+    {
+        NSArray* array = [ regex matchesInString: urlString options: 0 range: NSMakeRange(0, [urlString length])];
+        if (array)
+        {
+            for (NSTextCheckingResult* obj in array)
+            {
+                NSRange resultRange = [obj rangeAtIndex: 0 ]; //等同于 firstMatch.range --- 相匹配的范围
+                
+                //从urlString当中截取数据
+                
+                NSString *result = [urlString substringWithRange: resultRange];
+                
+                //输出结果
+                
+                NSLog(@"result = %@",result);
+            }
+            
+        }
+        
+        
+        
+    }
+
     
 //    NSError* error = nil;
 //    NSDataDetector* linkDetector = [NSDataDetector dataDetectorWithTypes: NSTextCheckingTypeLink|NSTextCheckingTypePhoneNumber error:&error];
