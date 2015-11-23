@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 andybain. All rights reserved.
 //
 /******************************************************\
- 带气泡背景的UIbutton,识别tap手势和长按手势
+ 带气泡背景的UIbutton,识别tap手势和长按手势。包装了实际的richTextView
  版本：
  作者：
 \******************************************************/
@@ -20,10 +20,10 @@ typedef NS_ENUM(NSInteger, MsgFromWhere) {
 
 @interface BubbleRichMsgView : UIButton
 
-@property(strong,nonatomic) RichMessageView * richMessageView;  // rich View
+@property(strong,nonatomic) RichMessageView * richMessageView;  // rich View 实际的richText创建者
 
 
-@property(assign) MsgFromWhere   msgFrom;
+@property(assign) MsgFromWhere   msgFrom; //不同的消息,气泡背景图不一样
  
 /*!
  设置所有的 bubbleMsgView 实例的最大宽度
@@ -34,12 +34,11 @@ typedef NS_ENUM(NSInteger, MsgFromWhere) {
 +(void)setPublicMaxWidth:( CGFloat )width;
 /*!
  获取设置所有的 bubbleMsgView 实例的最大宽度
-
  @return the max width
  */
 +(CGFloat)getPublicMaxWidth;
 /*!
- 通过字符串来创造消息视图
+ 通过模版数组来创造消息视图
  @param array
  */
 +(BubbleRichMsgView *)createBubbleRichMsgView:( NSArray * ) array MsgFrom:(MsgFromWhere) msgfrom;

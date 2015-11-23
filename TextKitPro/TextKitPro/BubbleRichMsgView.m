@@ -81,8 +81,9 @@ static NSString * rightBubbleImage = nil;
     self = [ super initWithFrame: frame ];
     if(self)
     {
-        [self addTarget:self action:@selector( ACT_touchupinside: ) forControlEvents:  UIControlEventTouchUpInside];
-        
+        //test
+             [self addTarget:self action:@selector( ACT_touchupinside: ) forControlEvents:  UIControlEventTouchUpInside];
+        //test ends
             //点击手势
             UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                         action:@selector(userGestureDetected:)];
