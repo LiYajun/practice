@@ -136,7 +136,7 @@ static CGFloat widthCallback(void* ref)
                 {
                     NSUInteger startPos = result.length;
                     
-                    NSAttributedString * as = [self parseAttributedTextFromNSDictionary:dict
+                    NSAttributedString * as = [self parseAttributedLinkTextFromNSDictionary:dict
                                                                                  config: config];
                     [result appendAttributedString: as];
                     //创建coreTextLinkData

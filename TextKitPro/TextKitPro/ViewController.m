@@ -16,6 +16,8 @@
 #import "RichMessageView.h"
 
 #import "BubbleRichMsgView.h"
+
+
 @interface ViewController ()
 
 @end
@@ -169,75 +171,83 @@
     
     //组装一个字符串，需要把里面的网址解析出来
     
-    NSString *urlString=@"www.blog.csdn.net/hitwhylz/article/details/4640230912312312 www.baidu.com32423423243abcdefg";
-    //NSRegularExpression类里面调用表达的方法需要传递一个NSError的参数。下面定义一个
-    NSError *error;
+
     
  //    http+:[^\\s]* 这个表达式是检测一个网址的。
  //   NSString* str = @"http+:[^\\s]*";
 //    NSString* str2= @"0\\d{2}-\\d{8}";
 //    NSString* str3= @"\\bhi\\w*";
+
+//测试 正则表达式 获取字符串数据
+    NSString* emailExp = @"([A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4})";
+    NSString* urlExp =   @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)";
+    NSString* numberExp = @"(\\d{5,12})";
     
-    #define KWebRegex    @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)"
-  
-    #define number  @"\\d{5,}"
+    NSString * regulerExp  =  [NSString stringWithFormat:@"%@|%@|%@", emailExp, urlExp, numberExp];
     
-    NSMutableArray *  posAry = [NSMutableArray new]; //纪录位置
+    NSString *textString=@"1223aawerwehttp://www.cocoachina.com/bbs342342342343/read.php?tid=8968523232 2832843@qq.com 23423423423,www.baidu.com";
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: KWebRegex options:0 error:&error];
-    NSString* noURLStr = [NSString stringWithString: urlString];
-    if(regex != nil)
+    NSError *error;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: regulerExp  options:0 error:&error];
+    
+    NSMutableArray * array = [[NSMutableArray alloc]init ];
+    NSArray* matchesArray = [ regex matchesInString: textString options: 0 range: NSMakeRange(0, [textString length])];
+       for (NSTextCheckingResult* obj in matchesArray)
+       {
+            //NSLog(@"%llu", obj.resultType);
+            NSRange resultRange = [obj rangeAtIndex: 0 ]; //等同于 firstMatch.range --- 相匹配的范围
+            NSValue * value =  [ NSValue valueWithRange: resultRange];
+            NSString * str  =  [ NSString stringWithString: [ textString substringWithRange: resultRange ] ];
+            NSMutableDictionary * dict = [[NSMutableDictionary alloc]initWithDictionary:
+                                          @{ @"pos": value,
+                                             @"content": str } ];
+           [array addObject: dict];
+           NSLog(@"result=%@", str);
+       }
+    NSUInteger length = textString.length;
+    NSRange startRange = NSMakeRange(0, 0);
+     NSRegularExpression *email_Regx    = [NSRegularExpression regularExpressionWithPattern: emailExp  options:0 error:&error];
+     NSRegularExpression *url_Regx      = [NSRegularExpression regularExpressionWithPattern: urlExp    options:0 error:&error];
+//     NSRegularExpression *number_Regx   = [NSRegularExpression regularExpressionWithPattern: numberExp options:0 error:&error];
+    
+    while (startRange.location < length)
     {
-        NSArray* array = [ regex matchesInString: urlString options: 0 range: NSMakeRange(0, [urlString length])];
-        if (array)
+        for(int i=0; i < array.count; i++)//遍历特殊的字符数组
         {
-            
-            for (NSTextCheckingResult* obj in array)
+            NSMutableDictionary* dict = [array objectAtIndex: i];
+            NSString * str = dict[@"content"];
+             
+            if( [email_Regx numberOfMatchesInString: str  options: 0 range: NSMakeRange(0, str.length)] != 0 )
             {
-                NSRange resultRange = [obj rangeAtIndex: 0 ]; //等同于 firstMatch.range --- 相匹配的范围
-                [ posAry addObject: [ NSValue valueWithRange: resultRange  ] ]; //保存字符串在整个字符串中的位置
-                //从urlString当中截取数据
-                NSString *result = [urlString substringWithRange: resultRange];
-                //输出结果
-                NSLog(@"result = %@",result);
-                noURLStr = [noURLStr stringByReplacingOccurrencesOfString: result withString:  @" " ]; //剔除侦测到的网址字符串，并替换成空格
+                [dict setObject: @"email" forKey:@"type"];
+                
+            }else if( [url_Regx numberOfMatchesInString: str  options: 0 range: NSMakeRange(0, str.length)] != 0 )
+            {
+                [dict setObject: @"link" forKey:@"type"];
+            }else
+            {
+                [dict setObject: @"number" forKey:@"type"];
+            }
+            NSLog(@"dict.content=%@",dict[@"content"]);
+            
+            //分析数组中的位置
+            NSRange range = ((NSValue*) dict[@"pos"]).rangeValue;
+            
+            if(startRange.location< range.location)
+            {
+                startRange.length = range.location - startRange.location; //获取长度
+                NSString * simpleStr = [textString substringWithRange: startRange];
+                NSValue * value =  [ NSValue valueWithRange: startRange];
+                NSString * str  =  [ NSString stringWithString: simpleStr ];
+                NSMutableDictionary * dict = [[NSMutableDictionary alloc]initWithDictionary:
+                                              @{ @"pos": value,
+                                                 @"content": str,
+                                                 @"type": @"txt"} ];
+                //[array insertObject: dict atIndex: i];
             }
         }
+        
     }
-    
-    //获取到了剩余的东西
-    regex = [NSRegularExpression regularExpressionWithPattern: number options:0 error:&error];
-    NSString* noURLNumberStr = [ NSString stringWithString: noURLStr];
-    
-    if(regex != nil)
-    {
-        NSArray* array = [ regex matchesInString: urlString options: 0 range: NSMakeRange(0, [urlString length])];
-        if (array)
-        {
-            
-            for (NSTextCheckingResult* obj in array)
-            {
-                NSRange resultRange = [obj rangeAtIndex: 0 ]; //等同于 firstMatch.range --- 相匹配的范围
-                [ posAry addObject: [ NSValue valueWithRange: resultRange  ] ]; //保存字符串在整个字符串中的位置
-                //从urlString当中截取数据
-                NSString *result = [urlString substringWithRange: resultRange];
-                //输出结果
-                NSLog(@"result = %@", result);
-                noURLNumberStr = [ noURLNumberStr stringByReplacingOccurrencesOfString: result withString: @" " ]; //剔除侦测到的网址字符串，并替换成空格
-            }
-        }
-    }
-    
-//    NSError* error = nil;
-//    NSDataDetector* linkDetector = [NSDataDetector dataDetectorWithTypes: NSTextCheckingTypeLink|NSTextCheckingTypePhoneNumber error:&error];
-//    [linkDetector enumerateMatchesInString: someString  options: kNilOptions range:NSMakeRange(0,[someString length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-//        if (result.URL) {
-//            NSLog(@"url = %@",result.URL);
-//        }
-//        if (result.phoneNumber) {
-//            NSLog(@"phone = %@",result.phoneNumber);
-//        }
-//    }];
     
 }
 -(void)test1
