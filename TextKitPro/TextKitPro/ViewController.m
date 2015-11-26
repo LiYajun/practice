@@ -16,6 +16,7 @@
 #import "RichMessageView.h"
 
 #import "BubbleRichMsgView.h"
+#import "TempleteParser.h"
 
 
 @interface ViewController ()
@@ -69,186 +70,26 @@
     [self.view addSubview: lab ];
 #endif
     
+    NSArray * array = [TempleteParser createTempleteArrayFrom: @"他的网址是http://www.iciba.com/concurrent121232343他的电话号码:23423423423423我的邮箱 233934323@qq.com你好34324334534534 http://blog.unieagle.net/2012/05/10/ios%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AF%B9nsarray%E6%88%96%E8%80%85nsmutablearray%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F/镜头today"];
     [BubbleRichMsgView setPublicMaxWidth: 200];
-    BubbleRichMsgView * richMessageView = [BubbleRichMsgView createBubbleRichMsgView: @[
-  @{
-      @"color"   : @"red",
-      @"content" : @"\ue403的1213344534534 ",
-      @"size"    : [NSNumber numberWithInteger: 10],
-      @"type"    : @"txt",
-    },
-  @{
-      @"color"   : @"blue",
-      @"content" : @"更版 \ue403版文件\ue403天热,文字的 ",
-      @"size"    : [NSNumber numberWithInteger: 10],
-      @"type"    : @"txt",
-      },
-  @{
-      @"name"    : @"coretext-image-1.jpg",
-      @"height"  : [ NSNumber numberWithInteger: 25 ],
-      @"width"   : [ NSNumber numberWithInteger: 50 ],
-      @"type"    : @"img",
-      },
-  @{
-      @"color"   : @"blue",
-      @"content"   : @"baidu",
-      @"url"     : @"www.baidu.com",
-      @"type"    : @"link",
-      },
-  ] MsgFrom: RightMsg];
+    BubbleRichMsgView * richMessageView = [BubbleRichMsgView createBubbleRichMsgView: array MsgFrom: RightMsg];
     richMessageView.x = 20;
     richMessageView.y = 50;
     
    [self.view addSubview: richMessageView ];
-//   [ richMessageView.imgBtn  addTarget: self  action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
-   //  richMessageView.imgBtn.highlighted  = YES;
     
-    BubbleRichMsgView * richMessageViewL = [BubbleRichMsgView createBubbleRichMsgView:
-    @[
-      @{
-        //@"color"   : @"red",
-        @"content" : @"\ue403的1213344534534 ",
-       // @"size"    : [NSNumber numberWithInteger: 10],
-        @"type"    : @"txt",
-        },
-    @{
-        //@"color"   : @"blue",
-        @"content" : @"更版 \ue403版文件\ue403天热,文字的 ",
-        //@"size"    : [NSNumber numberWithInteger: 10],
-        @"type"    : @"txt",
-        },
-      @{
-         // @"color"    : @"blue",
-          @"content"  : @"132234535667",
-         // @"size"   : [ NSNumber numberWithInteger: 14 ],
-          @"type"    : @"number",
-          },
-      @{
-        @"name"    : @"coretext-image-1.jpg",
-        @"height"  : [ NSNumber numberWithInteger: 217/4 ],
-        @"width"   : [ NSNumber numberWithInteger: 400/4 ],
-        @"type"    : @"img",
-        },
-      @{
-          //@"color"    : @"blue",
-          @"content"  : @"1322323123242344535667",
-         // @"size"   : [ NSNumber numberWithInteger: 12 ],
-          @"type"    : @"number",
-          },
-      @{
-          //@"color"   : @"blue",
-          @"content" : @"更版 \ue403版版文件版文件文版文件版文件版文件件\ue403天热,文字的 ",
-         // @"size"    : [NSNumber numberWithInteger: 10],
-          @"type"    : @"txt",
-          },
-
-     ] MsgFrom: LeftMsg];
-    richMessageViewL.x = 20;
-    richMessageViewL.y = 300;
-    [self.view addSubview: richMessageViewL];
-    
-//    [ richMessageViewL.imgBtn addTarget:self action:@selector(ACT_TouchUpinside:) forControlEvents: UIControlEventTouchUpInside ];
-    //richMessageViewL.imgBtn.highlighted = YES;
+   [[NSNotificationCenter  defaultCenter]addObserver:self selector:@selector(TapLink:) name:CTDisplayViewLinkPressedNotification object: nil];
+   
    
     self.view.backgroundColor = [UIColor whiteColor];
-//    
-//    UIButton * btn1 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
-//    [btn1 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
-//    [btn1 setTitle: @"btn1:" forState:UIControlStateNormal ];
-//    [btn1 addTarget:self action:@selector(test1) forControlEvents:UIControlEventTouchUpInside ];
-//    [self.view addSubview: btn1 ];
-//    btn1.backgroundColor = [UIColor redColor ];
-//    btn1.x = 10; btn1.y = 200;
-//    
-//    
-//    UIButton * btn2 = [[UIButton alloc]initWithFrame: CGRectMake(0, 0, 100, 50)];
-//    [btn2 setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
-//    [btn2 setTitle: @"btn2:" forState:UIControlStateNormal ];
-//    [btn2 addTarget:self action:@selector(test2) forControlEvents:UIControlEventTouchUpInside ];
-//    [ btn1 addSubview: btn2 ];
-//    btn2.x = 10; btn2.y = 0;
-//    btn2.backgroundColor = [ UIColor blueColor ];
-    
-    //组装一个字符串，需要把里面的网址解析出来
-    
+ 
+
 
     
- //    http+:[^\\s]* 这个表达式是检测一个网址的。
- //   NSString* str = @"http+:[^\\s]*";
-//    NSString* str2= @"0\\d{2}-\\d{8}";
-//    NSString* str3= @"\\bhi\\w*";
-
-//测试 正则表达式 获取字符串数据
-    NSString* emailExp = @"([A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4})";
-    NSString* urlExp =   @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)";
-    NSString* numberExp = @"(\\d{5,12})";
-    
-    NSString * regulerExp  =  [NSString stringWithFormat:@"%@|%@|%@", emailExp, urlExp, numberExp];
-    
-    NSString *textString=@"1223aawerwehttp://www.cocoachina.com/bbs342342342343/read.php?tid=8968523232 2832843@qq.com 23423423423,www.baidu.com";
-    
-    NSError *error;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: regulerExp  options:0 error:&error];
-    
-    NSMutableArray * array = [[NSMutableArray alloc]init ];
-    NSArray* matchesArray = [ regex matchesInString: textString options: 0 range: NSMakeRange(0, [textString length])];
-       for (NSTextCheckingResult* obj in matchesArray)
-       {
-            //NSLog(@"%llu", obj.resultType);
-            NSRange resultRange = [obj rangeAtIndex: 0 ]; //等同于 firstMatch.range --- 相匹配的范围
-            NSValue * value =  [ NSValue valueWithRange: resultRange];
-            NSString * str  =  [ NSString stringWithString: [ textString substringWithRange: resultRange ] ];
-            NSMutableDictionary * dict = [[NSMutableDictionary alloc]initWithDictionary:
-                                          @{ @"pos": value,
-                                             @"content": str } ];
-           [array addObject: dict];
-           NSLog(@"result=%@", str);
-       }
-    NSUInteger length = textString.length;
-    NSRange startRange = NSMakeRange(0, 0);
-     NSRegularExpression *email_Regx    = [NSRegularExpression regularExpressionWithPattern: emailExp  options:0 error:&error];
-     NSRegularExpression *url_Regx      = [NSRegularExpression regularExpressionWithPattern: urlExp    options:0 error:&error];
-//     NSRegularExpression *number_Regx   = [NSRegularExpression regularExpressionWithPattern: numberExp options:0 error:&error];
-    
-    while (startRange.location < length)
-    {
-        for(int i=0; i < array.count; i++)//遍历特殊的字符数组
-        {
-            NSMutableDictionary* dict = [array objectAtIndex: i];
-            NSString * str = dict[@"content"];
-             
-            if( [email_Regx numberOfMatchesInString: str  options: 0 range: NSMakeRange(0, str.length)] != 0 )
-            {
-                [dict setObject: @"email" forKey:@"type"];
-                
-            }else if( [url_Regx numberOfMatchesInString: str  options: 0 range: NSMakeRange(0, str.length)] != 0 )
-            {
-                [dict setObject: @"link" forKey:@"type"];
-            }else
-            {
-                [dict setObject: @"number" forKey:@"type"];
-            }
-            NSLog(@"dict.content=%@",dict[@"content"]);
-            
-            //分析数组中的位置
-            NSRange range = ((NSValue*) dict[@"pos"]).rangeValue;
-            
-            if(startRange.location< range.location)
-            {
-                startRange.length = range.location - startRange.location; //获取长度
-                NSString * simpleStr = [textString substringWithRange: startRange];
-                NSValue * value =  [ NSValue valueWithRange: startRange];
-                NSString * str  =  [ NSString stringWithString: simpleStr ];
-                NSMutableDictionary * dict = [[NSMutableDictionary alloc]initWithDictionary:
-                                              @{ @"pos": value,
-                                                 @"content": str,
-                                                 @"type": @"txt"} ];
-                //[array insertObject: dict atIndex: i];
-            }
-        }
-        
-    }
-    
+}
+-(void)TapLink:(NSNotification*) noti
+{
+    id obj = noti.userInfo;
 }
 -(void)test1
 {

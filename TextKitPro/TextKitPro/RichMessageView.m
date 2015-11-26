@@ -58,46 +58,7 @@ static CGFloat publicMaxWidth = 0;
     return ctView;
 }
 
--(id) init
-{
-    self = [ super init];
-    if(self)
-    {
-        [self setupEvents];
-    }
-    return  self;
-}
--(id) initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame: frame];
-    if(self)
-    {
-        [self setupEvents];
-    }
-    return  self;
-}
-//添加事件响应
--(void)setupEvents
-{
-//    //点击手势
-//    UIGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-//                                                                                action:@selector(userTapGestureDetected:)];
-//    
-//    tapRecognizer.cancelsTouchesInView = NO;
-//    tapRecognizer.delaysTouchesBegan  = NO;
-//    tapRecognizer.delaysTouchesEnded  = NO;
-//    [self addGestureRecognizer:tapRecognizer];
-//    
-//    //长按
-//    UIGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-//                                                                                             action:@selector(userLongPressedGuestureDetected:)];
-//    longPressRecognizer.cancelsTouchesInView = NO;
-//    longPressRecognizer.delaysTouchesBegan  = NO;
-//    longPressRecognizer.delaysTouchesEnded  = NO;
-//    [self addGestureRecognizer:longPressRecognizer];
-    
-    
-}
+//外部获取点击事件
 -(void)getUserGuesture:(UIGestureRecognizer *) recognzier;
 {
     NSLog(@"识别器状态：%d", recognzier.state);
@@ -110,10 +71,10 @@ static CGFloat publicMaxWidth = 0;
         [self userLongPressedGuestureDetected: recognzier ];
     }
 }
-//点击响应方法
+//点击
 -(void)userTapGestureDetected : (UIGestureRecognizer *) recognizer
 {
-    NSLog(@"TapGestureDetected ! ");
+    NSLog(@"点击...!");
     
     CGPoint point = [recognizer locationInView: self];
     //1. 遍历每个图形区域，判断点击的坐标在其中没有
@@ -139,9 +100,11 @@ static CGFloat publicMaxWidth = 0;
     }
     //2. 遍历每个链接区域，判断点击的坐标在其中没有
     CoreTextLinkData *linkData = [CoreTextUtils touchLinkInView: self atPoint:point data: self.data];
-    if (linkData) {
+    if (linkData)
+    {
         NSLog(@"hit link!");
         NSDictionary *userInfo = @{ @"linkData": linkData };
+
         // 发出通知
         [[NSNotificationCenter defaultCenter] postNotificationName:CTDisplayViewLinkPressedNotification
                                                             object:self userInfo:userInfo];
@@ -152,10 +115,15 @@ static CGFloat publicMaxWidth = 0;
 //长按
 -(void)userLongPressedGuestureDetected:(UIGestureRecognizer *) recognzier
 {
-    
+    NSLog(@"长按。。。");
 }
 
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [touches anyObject];
+    CGPoint point = [touch  locationInView: self];
+    
+}
 
 
 - (void)drawRect:(CGRect)rect
@@ -194,8 +162,12 @@ static CGFloat publicMaxWidth = 0;
             CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
         }
     }
-     
+    
     
 }
-
+//绘制触摸区域
+-(void)drawTouchArea
+{
+    
+}
 @end

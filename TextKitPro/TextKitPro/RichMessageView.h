@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 andybain. All rights reserved.
 //
 /******************************************************\
-
+ RichMessageView 提供显示不同属性文本
  版本：
- 作者：
+ 作者：yajun
 \******************************************************/
 #import <UIKit/UIKit.h>
 #import "CoreTextData.h"
@@ -48,7 +48,7 @@ extern NSString *const CTDisplayViewLinkPressedNotification;
 +(RichMessageView *)createMessageView:(NSArray *) array withWidth: (CGFloat)width;
 
 /*!
-外部获取长按的手势识别器
+外部获取手势识别器，来处理触摸事件
  */
 -(void)getUserGuesture:(UIGestureRecognizer *) recognzier;
 

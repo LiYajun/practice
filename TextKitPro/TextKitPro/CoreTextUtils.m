@@ -20,7 +20,7 @@
     return foundLink;
 }
 
-// 将点击的位置转换成字符串的偏移量，如果没有找到，则返回-1
+// 将点击的位置转换成字符串的偏移量(相对于当前行)，如果没有找到，则返回-1
 + (CFIndex)touchContentOffsetInView:(UIView *)view atPoint:(CGPoint)point data:(CoreTextData *)data {
     CTFrameRef textFrame = data.ctFrame;
     CFArrayRef lines = CTFrameGetLines(textFrame);

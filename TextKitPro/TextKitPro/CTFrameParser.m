@@ -144,7 +144,13 @@ static CGFloat widthCallback(void* ref)
                     NSRange linkRange = NSMakeRange( startPos,  length );
                     CoreTextLinkData * linkData = [[CoreTextLinkData alloc] init];
                     linkData.title = dict[@"content"];
-                    linkData.url   = dict[@"url"];
+                    if(dict[@"url"]==nil)
+                    {
+                        linkData.url   = dict[@"content"];
+                    }else
+                    {
+                        linkData.url   = dict[@"url"];
+                    }
                     linkData.type = TypeUrl;
                     linkData.range = linkRange;
                     [linkArray addObject: linkData];
@@ -167,6 +173,22 @@ static CGFloat widthCallback(void* ref)
                     linkData.range = linkRange;
                     [linkArray addObject: linkData];
                     
+                }else if( [type isEqualToString: @"email"] ) //邮箱,
+                {
+                    NSUInteger startPos = result.length;
+                    
+                    NSAttributedString * numberStr =[self parseAttributedEmailTextFromNSDictionary: dict
+                                                                                             config:config];
+                    [ result appendAttributedString : numberStr ];
+                    
+                    NSUInteger length = result.length - startPos;
+                    NSRange linkRange = NSMakeRange( startPos,  length );
+                    CoreTextLinkData * linkData = [[CoreTextLinkData alloc] init];
+                    linkData.title = dict[@"content"];
+                    linkData.url   = nil;
+                    linkData.type = TypeEmail;
+                    linkData.range = linkRange;
+                    [linkArray addObject: linkData];
                 }
             }
         }
@@ -195,7 +217,7 @@ static CGFloat widthCallback(void* ref)
         return  nil;
     }
 }
-#pragma mark 具体生成文本的方法
+#pragma mark 具体生成普通文本的方法
 // 通过 字典 生成 带属性的文本 NSAttributedString
 + (NSAttributedString *)parseAttributedTextFromNSDictionary:(NSDictionary *)dict
                                                         config:(CTFrameParserConfig*)config
@@ -233,21 +255,53 @@ static CGFloat widthCallback(void* ref)
     if (color) {
         attributes[(id)kCTForegroundColorAttributeName] = (id)color.CGColor;
     }
+    attributes[(id)kCTForegroundColorAttributeName] = (id)[UIColor orangeColor].CGColor;
     // set font size
     CGFloat fontSize = [dict[@"size"] floatValue];
     if (fontSize > 0) {
         CTFontRef fontRef = CTFontCreateWithName((CFStringRef)defaultFont, fontSize, NULL);
         attributes[(id)kCTFontAttributeName] = (__bridge id)fontRef;
-        int  number =   kCTUnderlineStyleSingle;
-        CFNumberRef numRef = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type, &number);
-        attributes[ (id)kCTUnderlineStyleAttributeName ] = (__bridge id) numRef ;
-
         CFRelease(fontRef);
-        CFRelease(numRef);
     }
+    //下划线
+    int  number =   kCTUnderlineStyleSingle;
+    CFNumberRef numRef = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type, &number);
+    attributes[ (id)kCTUnderlineStyleAttributeName ] = (__bridge id) numRef ;
+    CFRelease(numRef);
+    
     NSString *content = dict[@"content"];
     NSAttributedString * attributeStr = [[NSAttributedString alloc] initWithString:content attributes:attributes];
    
+    return  attributeStr;
+}
+#pragma mark 具体生成email文本的方法
+// 通过 字典 生成 带属性的 邮箱文本 NSAttributedString
++(NSAttributedString *)parseAttributedEmailTextFromNSDictionary: (NSDictionary *)dict
+                                                          config: (CTFrameParserConfig *) config
+{
+    NSMutableDictionary *attributes = [self attributesWithConfig:config];
+    // set color
+    UIColor *color = [ self colorFromTemplate: dict[@"color"] ];
+    if (color) {
+        attributes[(id)kCTForegroundColorAttributeName] = (id)color.CGColor;
+    }
+    attributes[(id)kCTForegroundColorAttributeName] = (id)[UIColor redColor].CGColor;
+    // set font size
+    CGFloat fontSize = [dict[@"size"] floatValue];
+    if (fontSize > 0) {
+        CTFontRef fontRef = CTFontCreateWithName((CFStringRef)defaultFont, fontSize, NULL);
+        attributes[(id)kCTFontAttributeName] = (__bridge id)fontRef;
+        CFRelease(fontRef);
+    }
+    //下划线
+    int  number =   kCTUnderlineStyleSingle;
+    CFNumberRef numRef = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type, &number);
+    attributes[ (id)kCTUnderlineStyleAttributeName ] = (__bridge id) numRef ;
+    CFRelease(numRef);
+    
+    NSString *content = dict[@"content"];
+    NSAttributedString * attributeStr = [[NSAttributedString alloc] initWithString:content attributes:attributes];
+    
     return  attributeStr;
 }
 #pragma mark 具体生成链接的方法
@@ -261,6 +315,7 @@ static CGFloat widthCallback(void* ref)
     if (color) {
         attributes[(id)kCTForegroundColorAttributeName] = (id)color.CGColor;
     }
+    attributes[(id)kCTForegroundColorAttributeName] = (id)[UIColor blueColor].CGColor;
     // set font size
     CGFloat fontSize = [dict[@"size"] floatValue];
     if (fontSize > 0) {
@@ -268,6 +323,12 @@ static CGFloat widthCallback(void* ref)
         attributes[(id)kCTFontAttributeName] = (__bridge id)fontRef;
         CFRelease(fontRef);
     }
+    //下划线
+    int  number =   kCTUnderlineStyleSingle;
+    CFNumberRef numRef = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type, &number);
+    attributes[ (id)kCTUnderlineStyleAttributeName ] = (__bridge id) numRef ;
+    CFRelease(numRef);
+    
     NSString *content = dict[@"content"];
     return [[NSAttributedString alloc] initWithString:content attributes:attributes];
 }

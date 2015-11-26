@@ -19,7 +19,7 @@
         _width = 200.0f;
         _fontSize = 16.0f;
         _lineSpace = 5.0f;
-        _textColor = RGB(108, 108, 108);
+        _textColor = RGB(0, 0, 0);
     }
     return self;
 }
