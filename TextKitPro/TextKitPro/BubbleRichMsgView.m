@@ -126,7 +126,7 @@
   
     NSLog(@"btn  touchesEnded");
     [super touchesEnded:touches withEvent:event];
-    
+    [self.richMessageView touchesCancelled:touches withEvent:event];
 }
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {

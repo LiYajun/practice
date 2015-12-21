@@ -16,11 +16,18 @@
 extern NSString *const CTDisplayViewImagePressedNotification;
 extern NSString *const CTDisplayViewLinkPressedNotification;
 
+typedef NS_ENUM(NSUInteger, touchState)
+{
+    State_Normal  = 0,
+    State_TouchBegain  ,
+    State_TouchEnd  ,
+    
+};
 @interface RichMessageView : UIView
 
 
-@property(strong, nonatomic) CoreTextData * data; //绘制相关信息，
-
+@property(strong,  nonatomic) CoreTextData * data; //绘制相关信息，
+@property(readonly,nonatomic) touchState   state; //view触摸状态
 
 /*!
  设置 所有的MessageView实例的 最大宽度

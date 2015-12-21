@@ -62,6 +62,11 @@ static CGFloat publicMaxWidth = 0;
 -(void)getUserGuesture:(UIGestureRecognizer *) recognzier;
 {
     NSLog(@"识别器状态：%d", recognzier.state);
+    
+    CGPoint point = [recognzier locationInView: self]; //转换成self上的坐标
+    if(CGRectContainsPoint(self.bounds, point)==NO)
+        return;
+    
     if( [ recognzier isKindOfClass: [UITapGestureRecognizer class]] && recognzier.state == UIGestureRecognizerStateEnded  )
     {
         [ self userTapGestureDetected: recognzier];
@@ -76,7 +81,9 @@ static CGFloat publicMaxWidth = 0;
 {
     NSLog(@"点击...!");
     
-    CGPoint point = [recognizer locationInView: self];
+    CGPoint point = [recognizer locationInView: self]; //转换成self上的坐标
+ 
+    
     //1. 遍历每个图形区域，判断点击的坐标在其中没有
     for (CoreTextImageData * imageData in self.data.imageArray)
     {
@@ -122,9 +129,23 @@ static CGFloat publicMaxWidth = 0;
 {
     UITouch * touch = [touches anyObject];
     CGPoint point = [touch  locationInView: self];
+    if(CGRectContainsPoint(self.bounds, point) == NO)
+        return;
+    [ self setState: State_TouchBegain ];  //触摸开始
+}
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
     
 }
-
+-(void)setState:(touchState)state
+{
+    if(_state != state)
+    {
+        _state = state;
+        [self setNeedsDisplay ];
+    }
+    
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -139,7 +160,10 @@ static CGFloat publicMaxWidth = 0;
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
     
- 
+    if(self.state == State_TouchBegain)
+    {
+        [self drawTouchArea];  //绘制触摸区域
+    }
     
     CTFrameDraw(self.data.ctFrame, context);
    

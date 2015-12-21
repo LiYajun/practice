@@ -45,7 +45,7 @@
         CGRect flippedRect = [self getLineBounds:line point:linePoint];
         CGRect rect = CGRectApplyAffineTransform(flippedRect, transform); //获取 UIKit 坐标系中的 rect
 
-        if (CGRectContainsPoint(rect, point)) {
+        if (CGRectContainsPoint(rect, point)) { //判断在不在当前行
             // 将点击的坐标转换成相对于当前行的坐标
             CGPoint relativePoint = CGPointMake(point.x-CGRectGetMinX(rect),
                                                 point.y-CGRectGetMinY(rect));

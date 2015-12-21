@@ -373,7 +373,7 @@ static CGFloat widthCallback(void* ref)
 }
 //从属性字符串来构造coreTextData
 + (CoreTextData *)parseAttributedContent:(NSAttributedString *)content config:(CTFrameParserConfig*)config
-        {
+{
     // 创建CTFramesetterRef实例
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)content);
     
