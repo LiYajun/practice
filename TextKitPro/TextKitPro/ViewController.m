@@ -32,6 +32,14 @@
 //NSLayoutManager用于管理NSTextStorage其中的文字内容的排版布局。
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc]init];
+    NSNumber * number1 = [NSNumber numberWithInt: 1];
+    NSNumber * number2 = [NSNumber numberWithInt: 2];
+    
+    [dict setObject: number1 forKey: @"number1"];
+    [dict setObject: number2 forKey: @"number1"];
+    
+    NSLog(@"dict=%@", dict);
     // Do any additional setup after loading the view, typically from a nib.
   self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan=NO;
 //测试 NSMutableAttributedString
